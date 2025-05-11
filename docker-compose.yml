@@ -1,0 +1,73 @@
+version: '3.8'
+
+services:
+  api-gateway:
+    build: ./api-gateway
+    ports:
+      - "3000:3000"
+    depends_on:
+      - classification-service
+    networks:
+      - app-network
+
+  classification-service:
+    build: ./classification-service
+    ports:
+      - "50051:50051"
+    networks:
+      - app-network
+
+  dashboard-service:
+    build: ./dashboard-service
+    ports:
+      - "4000:4000"
+    networks:
+      - app-network
+
+  content-service:
+    build: ./content-service
+    ports:
+      - "3001:3001"
+    networks:
+      - app-network
+
+  moderation-worker:
+    build: ./moderation-worker
+    depends_on:
+      - kafka
+      - classification-service
+      - zookeeper
+    networks:
+      - app-network
+
+  kafka:
+    image: bitnami/kafka:3.4.0  # ✅ Use a version that still defaults to Zookeeper mode    container_name: content-moderation-platform-kafka
+    container_name: content-moderation-platform-kafka
+    ports:
+      - "9092:9092"
+    environment:
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+      - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092
+      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092
+      - KAFKA_CFG_BROKER_ID=1
+      - KAFKA_ENABLE_KRAFT=no
+      - KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE=true
+      - ALLOW_PLAINTEXT_LISTENER=yes
+    depends_on:
+      - zookeeper
+    networks:
+      - app-network
+
+  zookeeper:
+    image: bitnami/zookeeper:latest
+    container_name: content-moderation-platform-zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

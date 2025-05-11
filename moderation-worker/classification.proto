@@ -1,0 +1,17 @@
+// classification.proto
+syntax = "proto3";
+
+package classification;
+
+service Classifier {
+  rpc Classify (ContentRequest) returns (ClassificationResponse);
+}
+
+message ContentRequest {
+  string content = 1;
+}
+
+message ClassificationResponse {
+  string label = 1;
+  float confidence = 2;
+}

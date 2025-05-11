@@ -1,0 +1,51 @@
+# Node modules
+node_modules/
+**/node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Build output
+dist/
+build/
+
+# Docker files
+docker-compose.override.yml
+docker-compose.dev.yml
+.docker/
+*.local
+
+# dotenv environment variables
+.env
+.env.*.local
+.env.local
+
+# IDEs and editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Optional: Ignore coverage reports if using Jest or other test tools
+coverage/
+*.lcov
+
+# Optional: Ignore compiled protobufs (if generated manually)
+*.pb.js
+*.proto.js
