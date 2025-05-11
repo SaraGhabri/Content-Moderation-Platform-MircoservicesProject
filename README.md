@@ -116,20 +116,23 @@ Each arrow represents an interaction: HTTP, GraphQL, Kafka, or gRPC.
 
 📦 Dependencies & Installation
 API Gateway:
-bash
+``` bash
 
 npm install express kafkajs apollo-server-express graphql
 
+```
+
+
 Moderation Worker:
-bash
+``` bash
 
 npm install kafkajs grpc @grpc/proto-loader
-
+```
 Classification Service:
-bash
+```bash
 
 npm install grpc @grpc/proto-loader
-
+```
 Kafka/Zookeeper (Docker Images):
 
     bitnami/kafka:3.4.0
@@ -138,12 +141,12 @@ Kafka/Zookeeper (Docker Images):
 
 🧪 Testing Guide
 📨 REST:
-bash
+``` bash
 
 curl -X POST http://localhost:3000/moderate \
 -H "Content-Type: application/json" \
 -d '{"content":"This is clean"}'
-
+```
 🔮 GraphQL (Apollo Sandbox or Postman):
 
 GraphQL endpoint: http://localhost:3000/graphql
@@ -156,8 +159,7 @@ mutation {
 }
 
 📁 .gitignore
-gitignore
-
+```bash
 node_modules/
 .env
 dist/
@@ -168,7 +170,7 @@ coverage/
 *.test.js
 *.out
 docker-data/
-
+```
 📌 Final Notes
 
 This project demonstrates how to build a modular and modern content moderation platform using multiple communication paradigms. It is an ideal base for teams looking to integrate NLP moderation at scale in real-world applications.
