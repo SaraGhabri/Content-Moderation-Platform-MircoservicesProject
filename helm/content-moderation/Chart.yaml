@@ -1,0 +1,23 @@
+apiVersion: v2
+name: content-moderation
+description: Global Helm chart for Content Moderation Platform
+type: application
+version: 0.1.0
+
+dependencies:
+  - name: api-gateway
+    version: 0.1.0
+    repository: "file://../api-gateway"
+
+  - name: content-service
+    version: 0.1.0
+    repository: "file://../content-service"
+
+  - name: classification-service
+    version: 0.1.0
+    repository: "file://../classification-service"
+
+  - name: moderation-worker
+    version: 0.1.0
+    repository: "file://../moderation-worker"
+

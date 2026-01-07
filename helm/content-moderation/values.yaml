@@ -1,0 +1,13 @@
+api-gateway:
+  replicaCount: 1
+
+content-service:
+  replicaCount: 1
+
+classification-service:
+  replicaCount: 1
+
+moderation-worker:
+  replicaCount: 1
+
+

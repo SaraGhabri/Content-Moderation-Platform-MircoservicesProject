@@ -1,0 +1,35 @@
+replicaCount: 1
+
+image:
+  repository: sarahghabri/classification-service
+  tag: "9"
+  pullPolicy: Always
+
+service:
+  type: ClusterIP
+  port: 50051
+  targetPort: 50051
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 250m
+    memory: 256Mi
+
+env:
+  - name: NODE_ENV
+    value: "production"
+
+livenessProbe:
+  tcpSocket:
+    port: 50051
+  initialDelaySeconds: 20
+  periodSeconds: 10
+
+readinessProbe:
+  tcpSocket:
+    port: 50051
+  initialDelaySeconds: 10
+  periodSeconds: 5

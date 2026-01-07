@@ -1,0 +1,15 @@
+dependencies:
+- name: api-gateway
+  repository: file://../api-gateway
+  version: 0.1.0
+- name: content-service
+  repository: file://../content-service
+  version: 0.1.0
+- name: classification-service
+  repository: file://../classification-service
+  version: 0.1.0
+- name: moderation-worker
+  repository: file://../moderation-worker
+  version: 0.1.0
+digest: sha256:f4686a73c532605eb0c01ffba7d1ff0f45cbe698c37b454e6f815186415928e4
+generated: "2026-01-07T21:38:29.565106477+01:00"
