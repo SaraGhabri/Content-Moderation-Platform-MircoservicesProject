@@ -16,7 +16,7 @@
 8. [Partie 5 : GitOps avec ArgoCD](#-partie-5--gitops-avec-argocd)
 9. [Partie 6 : Monitoring (Prometheus + Grafana)](#-partie-6--monitoring-prometheus--grafana)
 10. [Obstacles rencontrés et solutions](#-obstacles-rencontrés-et-solutions)
-11. [Démonstration en live](#-démonstration-en-live)
+
 
 ---
 
